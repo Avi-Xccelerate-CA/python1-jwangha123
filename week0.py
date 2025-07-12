@@ -13,6 +13,20 @@
 # HINT: using % operator to find remainder may be helpful
 def dose(needs):
     #YOUR SOLUTION STARTS HERE
-
+    if any(need > 250 for need in needs) or sum(needs) > 500:
+        return "No medicine given"
+    
+    treatment = []
+    for need in needs:
+        vitamins = need // 10
+        remainder = need % 10
+        if remainder == 0:
+            injections = 0
+        else:
+            vitamins += 1
+            injections = 10 - remainder
+        treatment.append((vitamins, injections))
+    
+    return treatment
     #YOUR SOLUTION ENDS HERE
 
